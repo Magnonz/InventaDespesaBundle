@@ -1,0 +1,103 @@
+
+{% extends 'InventaDespesasBundle::single.html.twig' %}
+
+{% block singlecontent %}
+    <h1>Despesa nº.{{entity.id}}</h1>
+
+    <p><button type="button" class="btn btn-primary" onclick="goBack()">Voltar</button> </p>
+    {% if is_granted('ROLE_ADMIN') %}
+        <p> <a href="{{ path('expenses_edit', { 'id': entity.id }) }}"><button class="btn btn-primary">Editar</button></a>
+
+            {{ form(delete_form) }}</p>
+        {% endif %}
+    <table class="table table-striped">
+        <tbody>
+
+            {#-------------------Form----------------#}
+            <tr>
+                <th>External_id</th>
+                <td>{{ entity.external_id }}</td>
+            </tr>
+            <tr>
+                <th>Supplier</th>
+                <td>{{ entity.getSupplierId.getName }}</td>
+            </tr>
+            <tr>
+                <th>Author</th>
+                <td>{{ entity.author_id }}</td>
+            </tr>
+            <tr>
+                <th>Company</th>
+                <td>{{ entity.getCompanyId.getName }}</td>
+            </tr>
+            <tr>
+                <th>Categorie</th>
+                <td>{{ entity.getCategoriesId.getName }}</td>
+            </tr>
+            <tr>
+                <th>Date Billed</th>
+                <td>{{ entity.DateBilledString }}</td>
+            </tr>
+            <tr>
+                <th>Date Due</th>
+                <td>{{ entity.DateDueString }}</td>
+            </tr>
+            {% if entity.getDateClosed != NULL %}
+                <tr>
+                    <th>Date Closed</th>
+                    <td>{{ entity.DateClosedString }}</td>
+                </tr>
+            {% endif %}
+            <tr>
+                <th>Status</th>
+                <td>{{ entity.status }}</td>
+            </tr>
+            <tr>
+                <th>Subtotal</th>
+                <td>{{ entity.subtotal }}</td>
+            </tr>
+
+            <tr>
+                <th>Total</th>
+                <td>{{ entity.total }}</td>
+            </tr>
+
+            <tr>
+                <th>Paid</th>
+                <td>{{ entity.yesornoPaid }}</td>
+            </tr>
+            <tr>
+                <th>Billable</th>
+                <td>{{ entity.yesornoBillable }}</td>
+            </tr>
+            <tr>
+                <th>Moeda</th>
+                <td>{{ entity.currency }}</td>
+            </tr>
+            <tr>
+                <th>Pais</th>
+                <td>{{ entity.countries }}</td>
+            </tr>
+            <tr>
+                <th>Notas</th>
+                <td>{{ entity.getNotePublic }}</td>
+            </tr>
+            <tr>
+                <th>Notas Privado</th>
+                <td>{{ entity.getNotePrivate }}</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    {% if entity.file is not null%}
+
+        <h3>Ficheiro</h3>
+
+        <a href="{{ path('Expenses_downloads',{'file': entity.file} ) }}">Download</a>
+
+    {% else %}
+        <p>Não tem ficheiro</p>
+    {% endif %}
+
+{% endblock %}

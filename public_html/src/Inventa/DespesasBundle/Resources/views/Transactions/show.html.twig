@@ -1,0 +1,42 @@
+{% extends 'InventaDespesasBundle::single.html.twig' %}
+
+{% block singlecontent %}
+    <h1>Transacção</h1>
+
+    <div class="col-md-8">
+        <p><button type="button" class="btn btn-primary" onclick="goBack()">Voltar</button>
+             {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('transactions_edit', { 'id': entity.id }) }}"><button class="btn btn-primary">Editar</button></a>
+            {{ form(delete_form) }}</p>
+             {% endif %}
+        <table class="table table-striped">
+            <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ entity.id }}</td>
+                </tr>
+                <tr>
+                    <th>Amount</th>
+                    <td>{{ entity.amount }}</td>
+                </tr>
+                <tr>
+                    <th>Status</th>
+                    <td>{{ entity.status }}</td>
+                </tr>
+                <tr>
+                    <th>Date_added</th>
+                    <td>{{ entity.dateadded|date('Y-m-d H:i:s') }}</td>
+                </tr>
+                <tr>
+                    <th>Moeda</th>
+                    <td>{{ entity.getCurrency.getName}}</td>
+                </tr>
+            </tbody>
+        </table>
+        {% if entity.amount != 0 %}
+         <a href="{{ path('transactions_expenses', { 'id': entity.id ,'supplier_id': entity.getSupplierId.getId,'currency':entity.getCurrency.getId}) }}">
+            Pagar Despesas
+        </a>
+        {% endif %}
+
+    {% endblock %}

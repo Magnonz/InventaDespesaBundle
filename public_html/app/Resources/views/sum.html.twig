@@ -1,0 +1,9 @@
+<body>
+    {% set foo=0%}
+    {% for entity in entities %}
+
+        {% set foo = foo + entity.getOwedValue %}
+
+    {% endfor %}
+    {{foo}} 
+</body>  

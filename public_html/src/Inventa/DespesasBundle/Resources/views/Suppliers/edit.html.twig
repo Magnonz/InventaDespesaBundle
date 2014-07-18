@@ -1,0 +1,21 @@
+{% extends 'InventaDespesasBundle::single.html.twig' %}
+
+{% block singlecontent %}
+    <h1>Editar Fornecedor</h1>
+
+    {{ form_start(edit_form) }}
+
+    <a href="{{ path('suppliers') }}"><button type="button" class="btn btn-primary">Voltar</button></a>   
+    {{ form_errors(edit_form) }}
+    <p>{{ form_row(edit_form.name)}}</p>
+    <p>{{ form_row(edit_form.email)}}</p>
+    <p>{{ form_row(edit_form.phone)}}</p>
+    <p>{{ form_row(edit_form.status)}}</p>
+    <p>{{ form_row(edit_form.default_currency)}}</p>
+    <p>{{ form_row(edit_form.country_id)}}</p>
+    <p>{{ form_row(edit_form.notes)}}</p>
+
+    <p class="col-md-1"> {{ form_widget(edit_form.submit, {'label':'Update' , 'attr': {'class': 'btn btn-primary pull-right'}}) }} 
+        {{ form_end(edit_form) }}                     
+        {{ form(delete_form) }}</p>
+{% endblock %}

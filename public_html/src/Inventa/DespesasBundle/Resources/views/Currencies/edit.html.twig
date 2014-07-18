@@ -1,0 +1,20 @@
+{% extends 'InventaDespesasBundle::single.html.twig' %}
+
+{% block singlecontent %}
+    <h1>Editar Moeda</h1>
+
+    {{ form_start(edit_form) }}
+
+    <a href="{{ path('currencies') }}"><button type="button" class="btn btn-primary">Voltar</button></a>   
+    {{ form_errors(edit_form) }}
+    <p>{{ form_row(edit_form.name)}}</p>
+    <p>{{ form_row(edit_form.prefix)}}</p>
+    <p>{{ form_row(edit_form.suffix)}}</p>
+    <p>{{ form_row(edit_form.exchange_rate)}}</p>
+    <p>{{ form_row(edit_form.company_id)}}</p>
+
+    <p class="col-md-1"> {{ form_widget(edit_form.submit, {'label':'Update' , 'attr': {'class': 'btn btn-primary pull-right'}}) }} 
+        {{ form_end(edit_form) }}                     
+        {{ form(delete_form) }}</p>
+
+{% endblock %}

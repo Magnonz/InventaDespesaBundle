@@ -1,0 +1,80 @@
+#---------------------Expenses----------------------------
+InventaDespesasBundle_expenses:
+    resource: "@InventaDespesasBundle/Resources/config/routing/expenses.php"
+    prefix:   /expenses
+
+#----------------------Categorias------------------------
+InventaDespesasBundle_categories:
+    resource: "@InventaDespesasBundle/Resources/config/routing/categories.php"
+    prefix:   /categories
+
+#------------------------Company--------------------------
+InventaDespesasBundle_company:
+    resource: "@InventaDespesasBundle/Resources/config/routing/company.php"
+    prefix:   /company
+
+#------------------------Currencies/Moeda------------------------
+InventaDespesasBundle_currencies:
+    resource: "@InventaDespesasBundle/Resources/config/routing/currencies.php"
+    prefix:   /currencies
+
+#------------------------Suppliers---------------------------------
+InventaDespesasBundle_suppliers:
+    resource: "@InventaDespesasBundle/Resources/config/routing/suppliers.php"
+    prefix:   /suppliers
+
+#-------------------------Country/Pais-------------------------------------
+InventaDespesasBundle_country:
+    resource: "@InventaDespesasBundle/Resources/config/routing/country.php"
+    prefix:   /country
+
+#---------------------------Exepenses Files-----------------------
+InventaDespesasBundle_expenses_files:
+    resource: "@InventaDespesasBundle/Resources/config/routing/expenses_files.php"
+    prefix:   /expenses_files
+#-----------------------------Expenses Downloads-----------------
+Expenses_downloads:
+    pattern:  /download/{file}
+    defaults: { _controller: InventaDespesasBundle:Expenses:download }
+    
+#-----------------------------------Transactions--------------------------------
+InventaDespesasBundle_transactions:
+    resource: "@InventaDespesasBundle/Resources/config/routing/transactions.php"
+    prefix:   /transactions
+        
+#---------------------------------Transactions Type-----------------------------  
+InventaDespesasBundle_transaction_type:
+    resource: "@InventaDespesasBundle/Resources/config/routing/transaction_type.php"
+    prefix:   /transaction_type
+
+#---------------------------------FOS User Bundle-------------------------------
+fos_user_group:
+    resource: "@FOSUserBundle/Resources/config/routing/group.xml"
+    prefix: /group
+
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /resetting
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /profile
+    
+fos_admin_users:
+    pattern:  /admin/users
+    defaults: { _controller: FOSUserBundle:Profile:showusers }
+    
+fos_admin_update_users:
+    pattern: /admin/users/update/{username}
+    defaults: { _controller: FOSUserBundle:Profile:updateRole }

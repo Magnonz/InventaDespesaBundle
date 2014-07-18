@@ -1,0 +1,37 @@
+{% extends 'InventaDespesasBundle::sidebar.html.twig' %}
+{% block sidebar %}
+
+
+    <h1>Filtros</h1>
+    {{ form_start(filterform) }}
+    {{ form_errors(filterform) }}
+    <p>Data Facturação</p> 
+    <table>
+        <tr>
+            <td>Inicio</td><td>{{ form_row(filterform.datestart, {'label':' '}) }}<td>
+        </tr>
+        <tr>    
+            <td>Fim</td><td>{{ form_row(filterform.dateend, {'label':' '}) }}</td>
+        </tr>
+    </table>
+    <p>{{ form_row(filterform.supplier_id,{'attr':{'class':'form-control','placeholder':'Total'}})}}</p>
+    <p>{{ form_row(filterform.status,{'attr':{'class':'form-control','placeholder':'Total'}})}}</p>
+    <p>{{ form_row(filterform.countries,{'attr':{'class':'form-control','placeholder':'Total'}})}}</p>
+    <p>{{ form_row(filterform.categories_id,{'attr':{'class':'form-control','placeholder':'Total'}})}}</p>
+
+    {{ form_widget(filterform.Search, {'attr': {'class': 'btn btn-primary'}}) }}
+    {{ form_end(filterform) }}
+{% endblock %}
+{% block main %}
+
+    <h1>Despesas</h1> 
+    <p><a href="{{ path('expenses_new') }}"><button type="button" class="btn btn-primary">Nova</button></a></p>
+
+
+    {{ include('::tableexpenses.html.twig',{ 'entities': entities }) }}
+
+
+
+
+
+{% endblock %}

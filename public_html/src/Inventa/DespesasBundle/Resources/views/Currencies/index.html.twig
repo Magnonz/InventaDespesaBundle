@@ -1,0 +1,40 @@
+{% extends 'InventaDespesasBundle::sidebar.html.twig' %}
+
+{% block main -%}
+    <h1>Moedas</h1> 
+    <p><a href="{{ path('currencies_new') }}"><button type="button" class="btn btn-primary">Nova Moeda</button></a></p>
+
+    <table id="expensestable" class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Prefix</th>
+                <th>Suffix</th>
+                <th>Nome</th>
+                <th>Exchange_rate</th>
+                <th>Exchange_update</th>
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <th>Actions</th>
+                    {% endif %}
+            </tr>
+        </thead>
+        <tbody data-link="row" class="rowlink">
+            {% for entity in entities %}
+                <tr>
+                    <td class="rowlink-skip"><a href="{{ path('currencies_show', { 'id': entity.id }) }}">{{ entity.id }}</td>
+                    <td>{{ entity.prefix }}</td>
+                    <td>{{ entity.suffix }}</td>
+                    <td>{{ entity.name }}</td>
+                    <td>{{ entity.exchangerate }}</td>
+                    <td>{% if entity.exchangeupdate %}{{ entity.exchangeupdate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <td>
+                            <a href="{{ path('currencies_edit', { 'id': entity.id }) }}"><button class="btn btn-primary">Editar</button></a>
+                        </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

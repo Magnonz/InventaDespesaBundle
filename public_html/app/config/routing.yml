@@ -1,0 +1,12 @@
+inventa_despesas:
+    resource: "@InventaDespesasBundle/Resources/config/routing.yml"
+    prefix:   /
+
+inventa_example_form:
+    resource: "@InventaExampleFormBundle/Resources/config/routing.yml"
+    prefix:   /index
+
+teste:
+    resource: "@TesteBundle/Resources/config/routing.php"
+    prefix:   /
+

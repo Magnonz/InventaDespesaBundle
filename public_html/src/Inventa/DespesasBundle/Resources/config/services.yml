@@ -1,0 +1,7 @@
+parameters:
+#    inventa_despesas.example.class: Inventa\DespesasBundle\Example
+
+services:
+#    inventa_despesas.example:
+#        class: %inventa_despesas.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

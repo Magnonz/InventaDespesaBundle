@@ -1,0 +1,47 @@
+{% extends 'InventaDespesasBundle::single.html.twig' %}
+
+{% block singlecontent %}
+
+    <h1>Nova Despesa</h1>
+    <a href="{{ path('suppliers_new') }}"><button type="button" class="btn btn-primary">Novo Suplier</button></a>
+    <a href="{{ path('expenses') }}"><button type="button" class="btn btn-primary">Voltar</button></a>   
+
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    <p>{{ form_row(form.company_id, {'attr': {'class':'form-control'}})}}</p>
+
+    <p>{{ form_row(form.supplier_id, {'attr': {'class':'form-control'}})}}</p>
+    <p>{{ form_row(form.date_billed)}}</p>
+    <p>{{ form_row(form.currency, {'attr': {'class':'form-control'}})}}</p>
+    <p>{{ form_row(form.countries, {'attr': {'class':'form-control'}})}}</p>
+    <p>{{ form_row(form.total,{'attr':{'class':'form-control','placeholder':'Total'}})}}</p>  
+    <label>Billable</label>{{ form_widget(form.billable)}}<label>Pago</label>{{ form_widget(form.paid)}}
+    <p>{{ form_row(form.categories_id, {'attr': {'class':'form-control'}})}}</p>
+    <p>{{ form_row(form.date_due)}}</p>
+    <p>{{ form_row(form.note_public ,{'attr':{'class':'form-control', 'rows':'3'}})}}</p>
+
+    <!----------------------------File Input--------------------------->
+    <div class="fileinput fileinput-new input-group col-md-4" data-provides="fileinput">
+        <div class="form-control" data-trigger="fileinput">
+            <i class="glyphicon glyphicon-file fileinput-exists"></i> 
+            <span class="fileinput-filename"></span></div>
+        <span class="input-group-addon btn btn-default btn-file">
+            <span class="fileinput-new">Escolher Ficheiro</span>
+            <span class="fileinput-exists">Mudar</span>
+            {{ form_widget(form.file) }}
+        </span>
+        <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remover</a>
+    </div>
+
+
+
+    {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+    {{ form_widget(form.saveanew, {'attr': {'class': 'btn btn-primary'}}) }}
+    {{ form_widget(form.Limpar, {'attr': {'class': 'btn btn-primary'}}) }}
+
+
+
+    {{ form_end(form) }}
+
+
+{% endblock %}

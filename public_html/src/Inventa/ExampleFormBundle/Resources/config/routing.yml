@@ -1,0 +1,12 @@
+inventa_example_form_homepage:
+    pattern:  /
+    defaults: { _controller: InventaExampleFormBundle:Default:index}
+inventa_example_form_insert:
+    pattern:  /insert
+    defaults: { _controller: InventaExampleFormBundle:Default:insert}
+inventa_example_form_delete:
+    pattern:  /delete
+    defaults: { _controller: InventaExampleFormBundle:Default:delete}
+inventa_example_form_update:
+    pattern:  /update
+    defaults: { _controller: InventaExampleFormBundle:Default:update}

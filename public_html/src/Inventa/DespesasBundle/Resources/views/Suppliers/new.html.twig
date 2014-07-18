@@ -1,0 +1,22 @@
+{% extends 'InventaDespesasBundle::single.html.twig' %}
+
+{% block singlecontent %}
+    <h1>Novo Fornecedor</h1>
+
+    <a href="{{ path('suppliers') }}"><button type="button" class="btn btn-primary">Voltar</button></a>   
+    {{ form_start(form) }}
+    <p>{{ form_row(form.name,{'attr':{'class':'form-control','placeholder':'Nome'}}) }}</p>
+    <p>{{ form_row(form.email,{'attr':{'class':'form-control','placeholder':'E-mail'}}) }}</p>
+    <p>{{ form_row(form.phone,{'attr':{'class':'form-control','placeholder':'Telefone'}}) }}</p>
+    <p>{{ form_row(form.status , {'attr': {'class':'form-control'}})}}</p>
+    <p>{{ form_row(form.default_currency, {'attr': {'class':'form-control'}})}}</p>
+    <p>{{ form_row(form.country_id, {'attr': {'class':'form-control'}})}}</p>
+    <p>{{ form_row(form.notes,{'attr':{'class':'form-control', 'rows':'3'}}) }}</p>                        
+    {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+    {{ form_end(form) }}    
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'InventaDespesasBundle::single.html.twig' %}
+{% block singlecontent %}
+
+    <h1>Criar Moeda</h1>
+
+    <a href="{{ path('currencies') }}"><button type="button" class="btn btn-primary">Voltar</button></a>   
+    {{ form_start(form) }}
+    <p>{{ form_row(form.name,{'attr':{'class':'form-control','placeholder':'Nome'}}) }}</p>
+    <p>{{ form_row(form.prefix,{'attr':{'class':'form-control','placeholder':'Prefix'}}) }}</p>
+    <p>{{ form_row(form.suffix,{'attr':{'class':'form-control','placeholder':'Suffix'}}) }}</p>
+    <p>{{ form_row(form.exchange_rate,{'attr':{'class':'form-control','placeholder':'Exchange Rate'}}) }}</p>
+
+    <p>{{ form_row(form.company_id, {'attr': {'class':'form-control'}})}}</p>
+                      
+    {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+    {{ form_end(form) }}    
+
+
+{% endblock %}

@@ -1,0 +1,6 @@
+
+Inventa\DespesasBundle\Entity\Expenses_Files:
+    properties:
+        file:
+            - File:
+                maxSize: 6000000

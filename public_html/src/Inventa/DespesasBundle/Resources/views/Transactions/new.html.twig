@@ -1,0 +1,15 @@
+{% extends 'InventaDespesasBundle::single.html.twig' %}
+{% block singlecontent %}
+
+    <h1>Nova Transacção</h1>
+    <a href="{{ path('transactions') }}"><button type="button" class="btn btn-primary">Voltar</button></a>   
+       {{ form_start(form) }}
+    <p>{{ form_row(form.amount,{'attr':{'class':'form-control','placeholder':'Amount'}}) }}</p>
+    <p>{{ form_row(form.status , {'attr': {'class':'form-control'}})}}</p>
+    <p>{{ form_row(form.supplier_id, {'attr': {'class':'form-control'}})}}</p>
+    <p>{{ form_row(form.currency, {'attr': {'class':'form-control'}})}}</p>
+        <p>{{ form_row(form.type, {'attr': {'class':'form-control'}})}}</p>               
+    {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+    {{ form_end(form) }}    
+
+{% endblock %}

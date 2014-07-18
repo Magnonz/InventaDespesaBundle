@@ -1,0 +1,55 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+    <html>
+
+        <head>
+            <title>Inventa-Despesas</title>
+
+            <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
+            <!--JS-->
+            <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
+
+        </head>
+        <body>
+
+            <div class="container">
+                <div class="jumbotron">
+                    <div class="row">
+                        <h1>Editar Despesa</h1>
+                        <div class="col-md-8">
+
+                            {{ form_start(edit_form) }}
+
+                            <a href="{{ path('expenses') }}"><button type="button" class="btn btn-primary">Voltar</button></a>   
+                            {{ form_errors(edit_form) }}
+                            <p>{{ form_row(edit_form.company_id)}}</p>
+                            <p>{{ form_row(edit_form.supplier_id)}}</p>
+                            <p>{{ form_row(edit_form.date_billed)}}</p>
+                            <p>{{ form_row(edit_form.currency)}}</p>
+                            <p>{{ form_row(edit_form.countries)}}</p>
+                            <p>{{ form_row(edit_form.total)}}</p>
+                            <label>Billable</label>{{ form_widget(edit_form.billable)}}<label>Pago</label>{{ form_widget(edit_form.paid)}}
+                            <p>{{ form_row(edit_form.categories_id)}}</p>
+                            <p>{{ form_row(edit_form.date_due)}}</p>
+                            <p>{{ form_row(edit_form.note_public)}}</p>
+
+
+                        </div>
+                        <div class="col-md-4"> 
+                          
+                        </div>
+                    </div>
+
+                    <p class="col-md-1"> {{ form_widget(edit_form.submit, {'label':'Update' , 'attr': {'class': 'btn btn-primary pull-right'}}) }} 
+                         {{ form_end(edit_form) }}                     
+                         {{ form(delete_form) }}</p>
+                </div>
+            </div>
+
+        </body>
+    </html>
+
+
+{% endblock %}

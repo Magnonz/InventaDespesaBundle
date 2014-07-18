@@ -1,0 +1,13 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<h1>Registo</h1>
+<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+   {{ form_start(form) }}
+    {{ form_errors(form) }}
+    <p>{{ form_row(form.email,{'attr':{'class':'form-control','placeholder':'Email'}})}}</p>  
+    <p>{{ form_row(form.username,{'attr':{'class':'form-control','placeholder':'Login'}})}}</p>  
+    <p>{{ form_row(form.plainPassword,{'attr':{'class':'form-control','placeholder':'Password'}})}}</p>  
+    <div>
+    {{ form_end(form) }}
+        <input type="submit" value="Registar" class="btn btn-primary" />
+    </div>
+</form>

@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>Agenda</title>
+
+</head>
+<body>
+<h1>Agenda</h1>
+<div class="container">
+
+
+{% for task in tarefa %}
+
+	<p>{{task.task}} no dia {{task.dueDate|date("m/d/Y")}}</p>
+
+{% endfor %}
+
+
+
+</div>
+</body>
+
+
+</html>

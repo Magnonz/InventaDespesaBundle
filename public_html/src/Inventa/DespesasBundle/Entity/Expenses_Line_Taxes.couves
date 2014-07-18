@@ -1,0 +1,42 @@
+<?php
+namespace Inventa\DespesasBundle\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="Expenses_Lines_Taxes")
+ */
+
+
+class Expenses_Lines_Taxes
+{	
+
+//--------------------------Atributos---------------------
+
+//----------Line Id------------
+
+/**
+*
+* @ORM\ManyToOne(targetEntity="Expenses_lines")
+* @ORM\JoinColumn(name="line_id", referencedColumnName="id")
+* 
+*/
+
+protected $line_id;
+
+
+//----------Taxes Id------------
+
+/**
+*
+* @ORM\ManyToOne(targetEntity="Taxes")
+* @ORM\JoinColumn(name="tax_id", referencedColumnName="id")
+* 
+*/
+
+protected $tax_id;
+
+}

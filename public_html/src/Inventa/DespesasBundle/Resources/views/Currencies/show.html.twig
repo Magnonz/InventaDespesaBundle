@@ -1,0 +1,34 @@
+{% extends 'InventaDespesasBundle::single.html.twig' %}
+{% block singlecontent %}
+    <h1>Moeda</h1>
+    <p><button type="button" class="btn btn-primary" onclick="goBack()">Voltar</button>
+        {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('currencies_edit', { 'id': entity.id }) }}"><button class="btn btn-primary">Editar</button></a>
+            {{ form(delete_form) }}</p>
+        {% endif %}
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Prefix</th>
+                <td>{{ entity.prefix }}</td>
+            </tr>
+            <tr>
+                <th>Suffix</th>
+                <td>{{ entity.suffix }}</td>
+            </tr>
+            <tr>
+                <th>Exchange_rate</th>
+                <td>{{ entity.exchangerate }}</td>
+            </tr>
+            <tr>
+                <th>Exchange_update</th>
+                <td>{{ entity.exchangeupdate|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}

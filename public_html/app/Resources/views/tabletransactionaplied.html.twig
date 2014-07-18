@@ -1,0 +1,25 @@
+
+<h3>Transacções Realizadas</h3>
+<table id="expensestable" class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Nº</th>
+            <th>NºDespesa</th>
+            <th>NºTransacção</th>
+            <th>Quantidade</th>
+            <th>Data Criado</th>
+        </tr>
+    </thead>
+    <tbody data-link="row" class="rowlink">
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.id }}</td> 
+                <td>{{ entity.getExpensesId.getId }}</td>
+                <td>{{ entity.getTransactionId.getId }}</td>
+                <td>{{ entity.amount }}</td>
+                <td>{{ entity.getDateAddedString}}</td>
+
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

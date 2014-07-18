@@ -1,0 +1,80 @@
+<?php
+namespace Inventa\ExampleFormBundle\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+
+use Doctrine\ORM\Mapping as ORM;
+
+
+//Comando para criar tabela
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="Task")
+ */
+
+
+class Task
+{
+    //-------------------------------Atributos-----------------//
+    //---------------ID------------
+
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+
+    protected $id;
+
+    //---------------Task----------
+
+
+    /**
+    *@ORM\Column(type="string" , length=100)    
+    */
+
+    protected $task;
+
+     //--------------Duedate-----------------
+
+      /**
+      * @ORM\Column(type="datetime")
+      */
+
+    protected $dueDate;
+    /*
+    *@var\Doctrine\Common\Collections\ArrayCollection $usarios
+    *@ORM\ManyToMany(targetEntity="Usarios" , mappedBy="tarefas")
+    */
+    protected $usarios;
+
+
+    //---------------------Metodos-----------------------//
+    public function getId()
+    {
+        return $this->id;
+    }
+
+  
+
+    public function getTask()
+    {
+        return $this->task;
+    }
+
+    public function setTask($task)
+    {
+        $this->task = $task;
+    }
+
+    public function getDueDate()
+    {
+        return $this->dueDate;
+    }
+
+    public function setDueDate(\DateTime $dueDate = null)
+    {
+        $this->dueDate = $dueDate;
+    }
+}
